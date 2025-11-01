@@ -1,10 +1,8 @@
 # Imagen base mínima de Nginx
 FROM nginx:alpine
 
-# Copiamos el sitio estático
-COPY ./index.html /usr/share/nginx/html/index.html
-COPY ./style.css  /usr/share/nginx/html/style.css
-COPY ./posts      /usr/share/nginx/html/posts
+# Copiamos TODO el sitio estático a la carpeta del servidor
+COPY . /usr/share/nginx/html
 
 # Opcional: cabeceras simples y caché estática
 RUN printf 'add_header X-Content-Type-Options "nosniff" always;\n\
